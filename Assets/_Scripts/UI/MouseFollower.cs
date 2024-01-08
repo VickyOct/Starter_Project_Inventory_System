@@ -6,7 +6,7 @@ public class MouseFollower : MonoBehaviour
 {
     [SerializeField]
     private Canvas canvas;
-    
+
     [SerializeField]
     private UIInventoryItem item;
 
@@ -21,7 +21,7 @@ public class MouseFollower : MonoBehaviour
         item.SetData(sprite, quantity);
     }
 
-    private void Update()
+    void Update()
     {
         Vector2 position;
         RectTransformUtility.ScreenPointToLocalPointInRectangle(

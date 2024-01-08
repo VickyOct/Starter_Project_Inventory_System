@@ -23,7 +23,7 @@ public class UIInventoryPage : MonoBehaviour
     public int quantity;
     public string title, description;
 
-    private int currentlyDraggedItemIndex;
+    private int currentlyDraggedItemIndex = -1;
 
     private void Awake()
     {
@@ -59,16 +59,16 @@ public class UIInventoryPage : MonoBehaviour
     private void HandleItemSwap(UIInventoryItem inventoryItemUI)
     {
         int index = listOfUIItems.IndexOf(inventoryItemUI);
+        Debug.Log("Item dragged");
+
         if (index == -1)
         {
             mouseFollower.Toggle(false);
             currentlyDraggedItemIndex = -1;
             return;
         }
-        listOfUIItems[currentlyDraggedItemIndex]
-            .SetData(index == 0 ? image : image2, quantity);
-        listOfUIItems[index]
-            .SetData(currentlyDraggedItemIndex == 0 ? image2 : image, quantity);
+        listOfUIItems[currentlyDraggedItemIndex].SetData(index == 0 ? image : image2, quantity);
+        listOfUIItems[index].SetData(currentlyDraggedItemIndex == 0 ? image : image2, quantity);
         mouseFollower.Toggle(false);
         currentlyDraggedItemIndex = -1;
     }
