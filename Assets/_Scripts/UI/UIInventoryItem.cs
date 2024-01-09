@@ -26,10 +26,10 @@ public class UIInventoryItem : MonoBehaviour, IPointerClickHandler,IBeginDragHan
     public void Awake()
     {
         ResetData();
-        Deselect();
+        DeSelect();
     }
 
-    private void Deselect()
+    public void DeSelect()
     {
         borderImage.enabled = false;
     }
@@ -52,12 +52,12 @@ public class UIInventoryItem : MonoBehaviour, IPointerClickHandler,IBeginDragHan
         borderImage.enabled = true;
     }
 
-    public void OnPointerClick(PointerEventData pointerData)
+    public void OnPointerClick(PointerEventData eventData)
     {
         if (empty)
             return;
 
-        if (pointerData.button == PointerEventData.InputButton.Right)
+        if (eventData.button == PointerEventData.InputButton.Right)
         {
             OnRightMouseBtnClick?.Invoke(this);
         }
