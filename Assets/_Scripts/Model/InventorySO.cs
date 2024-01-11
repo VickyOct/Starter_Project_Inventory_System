@@ -48,6 +48,11 @@ public class InventorySO : ScriptableObject
         }
         return returnValue;
     }
+
+    internal InventoryItem GetItemAt(int itemIndex)
+    {
+        return inventoryItems[itemIndex];
+    }
 }
 
 [Serializable]
