@@ -82,12 +82,6 @@ namespace Inventory.UI
                 return;
             }
             OnSwapItems?.Invoke(currentlyDraggedItemIndex, index);
-            /*listOfUIItems[currentlyDraggedItemIndex]
-                .SetData(index == 0 ? image : image2, quantity);
-            listOfUIItems[index]
-                .SetData(currentlyDraggedItemIndex == 0 ? image : image2, quantity);
-            mouseFollower.Toggle(false);
-            currentlyDraggedItemIndex = -1;*/
         }
 
         private void ResetDraggedItem()
@@ -107,7 +101,7 @@ namespace Inventory.UI
             OnStartDragging?.Invoke(index);
         }
 
-        private void CreateDraggedItem(Sprite sprite, int quantity)
+        public void CreateDraggedItem(Sprite sprite, int quantity)
         {
             mouseFollower.Toggle(true);
             mouseFollower.SetData(sprite, quantity);
