@@ -131,7 +131,7 @@ namespace Inventory.Model
 
         private void InformAboutChange()
         {
-            throw new NotImplementedException();
+            
         }
     }
 
