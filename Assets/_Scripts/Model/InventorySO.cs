@@ -87,16 +87,15 @@ namespace Inventory.Model
                         InformAboutChange();
                         return 0;
                     }
-
-                    while(quantity > 0 && !IsInventoryFull())
-                    {
-                        int newQuantity = Mathf.Clamp(quantity, 0, item.MaxStackSize);
-                        quantity -= newQuantity;
-                        AddItemToFirstFreeSlot(item, newQuantity);
-                    }
-                    return quantity;
                 }
             }
+            while (quantity > 0 && !IsInventoryFull())
+            {
+                int newQuantity = Mathf.Clamp(quantity, 0, item.MaxStackSize);
+                quantity -= newQuantity;
+                AddItemToFirstFreeSlot(item, newQuantity);
+            }
+            return quantity;
         }
 
         public void AddItem(InventoryItem item)
