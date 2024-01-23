@@ -387,8 +387,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c2718c1071cd8354f82012a0b40b7806, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  agentData: {fileID: 11400000, guid: abcf6bcb080a1f049a9b77968158d457, type: 2}
+  maxHealth: 10
   currentHealth: {fileID: 11400000, guid: 3e638c5281d738540bbda9ce02547a4f, type: 2}
   bloodParticle: {fileID: 2156367806491492928, guid: 5f83e1530fdf11148ba195e4411ba1d9, type: 3}
-  renderer: {fileID: 7626749811110973265}
+  Healthrenderer: {fileID: 7626749811110973265}
   flashTime: 0.2

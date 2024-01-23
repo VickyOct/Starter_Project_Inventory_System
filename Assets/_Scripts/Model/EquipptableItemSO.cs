@@ -2,17 +2,23 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class EquipptableItemSO : MonoBehaviour
-{   
-    // Start is called before the first frame update
-    void Start()
+namespace Inventory.Model
+{
+    public class EquipptableItemSO : ItemSO, IItemAction
     {
-        
-    }
+        [SerializeField]
+        private List<ModifierData> modifierDatas = new List<ModifierData>();
+        public string ActionName => "equip";
 
-    // Update is called once per frame
-    void Update()
-    {
-        
+        public AudioClip actionSFX { get; private set; }
+
+        public bool PerformAction(GameObject character)
+        {
+            foreach (ModifierData data in modifierDatas)
+            {
+                data.statModifier.AffectCharacter(character, data.value);
+            }
+            return true;
+        }
     }
 }
