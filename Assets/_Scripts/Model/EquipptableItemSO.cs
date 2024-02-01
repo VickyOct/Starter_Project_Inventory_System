@@ -4,15 +4,15 @@ using UnityEngine;
 
 namespace Inventory.Model
 {
-    public class EquipptableItemSO : ItemSO, IItemAction
+    public class EquipptableItemSO : ItemSO, IItemAction, IDestoryableItem
     {
         [SerializeField]
         private List<ModifierData> modifierDatas = new List<ModifierData>();
-        public string ActionName => "equip";
+        public string ActionName => "Equip";
 
         public AudioClip actionSFX { get; private set; }
 
-        public bool PerformAction(GameObject character)
+        public bool PerformAction(GameObject character, List<ItemParameter> itemState = null)
         {
             foreach (ModifierData data in modifierDatas)
             {
