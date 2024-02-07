@@ -4,12 +4,14 @@ using UnityEngine;
 
 namespace Inventory.Model
 {
+    [CreateAssetMenu]
     public class EquipptableItemSO : ItemSO, IItemAction, IDestoryableItem
     {
         [SerializeField]
         private List<ModifierData> modifierDatas = new List<ModifierData>();
         public string ActionName => "Equip";
 
+        [field: SerializeField]
         public AudioClip actionSFX { get; private set; }
 
         public bool PerformAction(GameObject character, List<ItemParameter> itemState = null)
